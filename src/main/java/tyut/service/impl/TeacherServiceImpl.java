@@ -11,6 +11,7 @@ import tyut.bean.Base;
 import tyut.bean.Login;
 import tyut.bean.School;
 import tyut.bean.Teacher;
+import tyut.dao.LoginDao;
 import tyut.dao.TeacherDao;
 import tyut.service.ITeacherService;
 @Service
@@ -18,12 +19,20 @@ public class TeacherServiceImpl implements ITeacherService {
 
 	@Autowired
 	private TeacherDao teacherDao;
+	@Autowired
+	private LoginDao loginDao;
 	@Override
 	public void saveOrUpdate(Teacher teacher) throws Exception {
 		// TODO Auto-generated method stub
 		if(teacher!=null) {
 			Integer id=teacher.getId();
 			if(id==null) {
+				Login login=new Login();
+				login.setUsername(teacher.getLogin().getUsername());
+				login.setPassword(teacher.getLogin().getPassword());
+				login.setStatus(teacher.getLogin().getStatus());
+				loginDao.save(login);
+				teacher.setLogin(login);
 				teacherDao.save(teacher);
 			}else {
 				Teacher teacher_db=teacherDao.findById(id).get();
@@ -113,7 +122,8 @@ public class TeacherServiceImpl implements ITeacherService {
 		Optional<Teacher> optional = teacherDao.findById(id);
 		Teacher teacher=optional.isPresent()?optional.get():null;
 		if(teacher!=null) {
-			teacherDao.deleteById(id);
+			Login login = loginDao.findById(teacher.getLogin().getId()).get();
+			loginDao.deleteById(login.getId());
 		}else {
 			throw new Exception("该id在数据库中不存在");
 		}

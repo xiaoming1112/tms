@@ -16,18 +16,28 @@ import tyut.bean.Base;
 import tyut.bean.Login;
 import tyut.bean.School;
 import tyut.dao.AdminuserDao;
+import tyut.dao.LoginDao;
 import tyut.service.IAdminuserService;
 @Service
 public class AdminuserServiceImpl implements IAdminuserService {
 
 	@Autowired
 	private AdminuserDao adminuserDao;
+	@Autowired
+	private LoginDao loginDao;
 	@Override
 	public void saveOrUpdate(Adminuser adminuser) throws Exception {
 		// TODO Auto-generated method stub
 		if(adminuser!=null) {
 			Integer id=adminuser.getId();
 			if(id==null) {
+				Login login=new Login();
+				login.setUsername(adminuser.getLogin().getUsername());
+				login.setPassword(adminuser.getLogin().getPassword());
+				login.setRole("管理员");
+				login.setStatus(adminuser.getLogin().getStatus());
+				loginDao.save(login);
+				adminuser.setLogin(login);
 				adminuserDao.save(adminuser);
 			}else {
 				Adminuser adminuser_db=adminuserDao.findById(id).get();
@@ -134,7 +144,8 @@ public class AdminuserServiceImpl implements IAdminuserService {
 		Optional<Adminuser> optional = adminuserDao.findById(id);
 		Adminuser adminuser=optional.isPresent()?optional.get():null;
 		if(adminuser!=null) {
-			adminuserDao.deleteById(id);
+			Login login = loginDao.findById(adminuser.getLogin().getId()).get();
+			loginDao.deleteById(login.getId());
 		}else {
 			throw new Exception("该id在数据库中不存在");
 		}

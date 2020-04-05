@@ -1,6 +1,5 @@
 package tyut.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,9 +10,7 @@ import org.springframework.stereotype.Service;
 import tyut.bean.Base;
 import tyut.bean.School;
 import tyut.bean.School_Base;
-import tyut.dao.BaseDao;
 import tyut.dao.School_BaseDao;
-import tyut.service.IBaseService;
 import tyut.service.ISchool_BaseService;
 
 @Service

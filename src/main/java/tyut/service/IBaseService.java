@@ -3,7 +3,6 @@ package tyut.service;
 import java.util.List;
 
 import tyut.bean.Base;
-import tyut.bean.School;
 
 public interface IBaseService {
 	public void saveOrUpdate(Base base) throws Exception;

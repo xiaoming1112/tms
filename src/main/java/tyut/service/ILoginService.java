@@ -2,7 +2,6 @@ package tyut.service;
 
 import java.util.List;
 
-import tyut.bean.Base;
 import tyut.bean.Login;
 
 public interface ILoginService {

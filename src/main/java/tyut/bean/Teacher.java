@@ -20,7 +20,7 @@ public class Teacher {
 	@ApiModelProperty(value="id")
 	private Integer id;
 	
-	@ApiModelProperty(value="登录id")
+	@ApiModelProperty(value="登录id",hidden = true)
 	@ManyToOne
 	@JoinColumn(name="login_id")
 	private Login login;

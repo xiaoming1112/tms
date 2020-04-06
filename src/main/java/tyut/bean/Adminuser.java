@@ -21,7 +21,7 @@ public class Adminuser {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@ApiModelProperty(value="id")
 	private Integer id;
-	@ApiModelProperty(value="登录id")
+	@ApiModelProperty(value="登录id",hidden = true)
 	@ManyToOne
 	@JoinColumn(name="login_id")
 	private Login login;
@@ -34,7 +34,7 @@ public class Adminuser {
 	@JoinColumn(name="base_id")
 	private Base base;
 	@ApiModelProperty(value="姓名")
-	private Integer  name;
+	private String  name;
 	@ApiModelProperty(value="电话")
 	private String phone;
 	@ApiModelProperty(value="状态")
@@ -56,7 +56,7 @@ public class Adminuser {
 	public Adminuser() {
 		
 	}
-	public Adminuser(Integer name, String phone, String status, Integer newadmin_role, Integer base_role,
+	public Adminuser(String name, String phone, String status, Integer newadmin_role, Integer base_role,
 			Integer message_role, Integer student_role, Integer teaching_role, Integer steacher_role,
 			Integer studenthost_role) {
 		this.name = name;
@@ -94,10 +94,10 @@ public class Adminuser {
 	public void setBase(Base base) {
 		this.base = base;
 	}
-	public Integer getName() {
+	public String getName() {
 		return name;
 	}
-	public void setName(Integer name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 	public String getPhone() {

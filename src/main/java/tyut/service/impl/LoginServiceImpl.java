@@ -21,7 +21,12 @@ public class LoginServiceImpl implements ILoginService {
 		if (login != null) {
 			Integer id = login.getId();
 			if (id == null) {
-				loginDao.save(login);
+				if(login.getUsername()==null) {
+					loginDao.save(login);
+				}else {
+					throw new Exception("已存在该用户名");
+				}
+				
 			} else {
 				// update by id
 				Login login_db = loginDao.findById(id).get();

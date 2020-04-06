@@ -39,7 +39,7 @@ public class AdminuserServiceImpl implements IAdminuserService {
 				adminuserDao.save(adminuser);
 			} else {
 				Adminuser adminuser_db = adminuserDao.findById(id).get();
-				Integer name = adminuser_db.getName();
+				String name = adminuser_db.getName();
 				String phone = adminuser_db.getPhone();
 				String status = adminuser_db.getStatus();
 				Integer newadmin_role = adminuser_db.getNewadmin_role();

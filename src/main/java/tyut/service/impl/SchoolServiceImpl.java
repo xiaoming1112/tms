@@ -92,6 +92,7 @@ public class SchoolServiceImpl implements ISchoolService{
 		List<School> all=schoolDao.findByNameLike("%"+name+"%");
 		return all;
 	}
+
 	
 	
 

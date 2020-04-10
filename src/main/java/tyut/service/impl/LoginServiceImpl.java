@@ -100,4 +100,15 @@ public class LoginServiceImpl implements ILoginService {
 		return all;
 	}
 
+	@Override
+	public Boolean IsexactUsername(String userName) {
+		// TODO Auto-generated method stub
+		Login login = loginDao.findByUsername(userName);
+		if(login==null) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+
 }

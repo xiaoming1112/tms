@@ -20,7 +20,7 @@ import tyut.untils.MessageUtil;
 @RestController
 @RequestMapping("/school")
 @Api(description = "学校相关接口")
-public class SchoolController {
+public class ISchoolController {
 	@Autowired
 	private ISchoolService schoolService;
 

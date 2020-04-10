@@ -34,7 +34,7 @@ public class Adminuser {
 	@JoinColumn(name="base_id")
 	private Base base;
 	@ApiModelProperty(value="姓名")
-	private String  name;
+	private String name;
 	@ApiModelProperty(value="电话")
 	private String phone;
 	@ApiModelProperty(value="状态")

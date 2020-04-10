@@ -12,6 +12,5 @@ public interface ISchoolService {
 	public List<School> findAll();
 
 	public void deleteById(int id) throws Exception;
-
 	public List<School> findByName(String name);
 }

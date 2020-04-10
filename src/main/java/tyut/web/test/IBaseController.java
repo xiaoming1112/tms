@@ -19,7 +19,7 @@ import tyut.untils.MessageUtil;
 @RestController
 @RequestMapping("/base")
 @Api(description = "基地相关接口")
-public class BaseController {
+public class IBaseController {
 	@Autowired
 	private IBaseService baseService;
 

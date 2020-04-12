@@ -19,7 +19,7 @@ public interface IAdminuserService {
 	public List<Adminuser> findByBase(Base base);
 
 	public List<Adminuser> findByStatus(String status);
-
+	public List<Adminuser> findByNameLike(String name);
 	public List<Adminuser> findAll();
 
 	public void deleteById(int id) throws Exception;

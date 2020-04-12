@@ -149,4 +149,11 @@ public class AdminuserServiceImpl implements IAdminuserService {
 		}
 	}
 
+	@Override
+	public List<Adminuser> findByNameLike(String name) {
+		// TODO Auto-generated method stub
+		List<Adminuser> list = adminuserDao.findByNameLike(name);
+		return list;
+	}
+
 }

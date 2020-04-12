@@ -14,4 +14,6 @@ public interface IBaseService {
 	public void deleteById(int id) throws Exception;
 
 	public List<Base> findByName(String name);
+	
+	
 }

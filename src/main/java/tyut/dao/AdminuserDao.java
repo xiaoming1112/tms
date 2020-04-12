@@ -11,7 +11,7 @@ import tyut.bean.School;
 
 public interface AdminuserDao extends JpaRepository<Adminuser, Integer> {
 	Adminuser findByLogin(Login login);
-
+	List<Adminuser> findByNameLike(String name);
 	List<Adminuser> findBySchool(School school);
 
 	List<Adminuser> findByBase(Base base);
